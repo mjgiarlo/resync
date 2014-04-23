@@ -1,13 +1,9 @@
 require "rails"
 
-module Sitemap
-
+module Resync
   class Railtie < Rails::Railtie
-
     rake_tasks do
-      load "tasks/sitemap.rake"
+      load "tasks/resync.rake"
     end
-
   end
-
 end

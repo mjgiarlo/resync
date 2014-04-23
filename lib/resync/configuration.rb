@@ -1,21 +1,16 @@
-module Sitemap
-
+module Resync
   class Configuration
-
     module Defaults
-
       PARAMS = {}.freeze
 
       SEARCH = {
-        :updated_at => proc { |obj|
+        updated_at: proc { |obj|
           obj.updated_at.strftime("%Y-%m-%d") if obj.respond_to?(:updated_at)
         }
       }.freeze
 
       QUERY_BATCH_SIZE = 500
-
       MAX_URLS = 10000
-
     end
 
     attr_accessor :data
@@ -26,10 +21,10 @@ module Sitemap
 
     def reset
       self.data = {
-        :params           => Defaults::PARAMS.dup,
-        :search           => Defaults::SEARCH.dup,
-        :query_batch_size => Defaults::QUERY_BATCH_SIZE,
-        :max_urls         => Defaults::MAX_URLS
+        params: Defaults::PARAMS.dup,
+        search: Defaults::SEARCH.dup,
+        query_batch_size: Defaults::QUERY_BATCH_SIZE,
+        max_urls: Defaults::MAX_URLS
       }
     end
 
@@ -60,7 +55,5 @@ module Sitemap
         super(method, *args, &block)
       end
     end
-
   end
-
 end

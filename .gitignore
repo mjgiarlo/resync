@@ -6,3 +6,4 @@ doc
 .config
 .yardoc
 Gemfile.lock
+.ruby-*

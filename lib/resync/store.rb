@@ -1,16 +1,14 @@
-module Sitemap
-
+module Resync
   class Store
-
     attr_accessor :entries, :max_entries, :reset_count, :before_reset_callback
 
     def initialize(options = {})
-      self.entries     = []
+      self.entries = []
       self.reset_count = 0
       self.max_entries = options[:max_entries]
     end
 
-    def << entry
+    def <<(entry)
       reset! if entries.length >= max_entries
       self.entries << entry
     end
@@ -24,7 +22,5 @@ module Sitemap
     def before_reset(&block)
       self.before_reset_callback = block
     end
-
   end
-
 end
